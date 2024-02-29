@@ -46,8 +46,7 @@ io.on('connection', (socket) => {
   })
 
 	socket.on('run-script', code => {		
-		output('----')
-
+		// output('----')
 		fs.writeFile("./" + TMP_FILE, code, function(err) {
 			if(err) {
 				return output(err)
