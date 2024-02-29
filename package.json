@@ -1,0 +1,16 @@
+{
+  "name": "crystal-node",
+  "version": "0.0.1",
+  "description": "node to run python scripts",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Cheang",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "socket.io": "^4.7.4"
+  }
+}

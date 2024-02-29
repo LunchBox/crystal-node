@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+	<script>
+		const socket = io()
+		socket.on('output', msg => {
+			const item = document.createElement("pre")
+			item.textContent = msg
+			document.querySelector("#output").append(item)
+			item.scrollIntoView()
+		})
+
+		function run() {
+			const code = `
+import time
+
+print('python start',flush=True)
+time.sleep(10)  #等待10秒
+print('python end',flush=True)
+`
+			console.log(code)
+
+			socket.emit("run-script", code)
+		}
+	</script>
+</head>
+<body>
+	<button onclick="run()">Run!!!</button>
+	<div id="output" style="border: 1px solid #333; height: 300px; margin: 1rem 0;"></div>
+</body>
+</html>
