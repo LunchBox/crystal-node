@@ -30,4 +30,7 @@ coverage
 *.tsbuildinfo
 
 
+venv
 tmp.py
+kernel.json
+test.log
