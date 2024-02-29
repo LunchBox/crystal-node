@@ -46,14 +46,13 @@ io.on('connection', (socket) => {
   })
 
 	socket.on('run-script', code => {		
-		output('code received.')
+		output('----')
 
 		fs.writeFile("./" + TMP_FILE, code, function(err) {
 			if(err) {
 				return output(err)
 			}
-
-			output("saved to tmp file")
+			// output("saved to tmp file")
 		
 			run()
 		})
