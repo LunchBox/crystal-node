@@ -22,7 +22,7 @@
 
 	<script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
 	<script>
-		const socket = io()
+		const socket = io('http://127.0.0.1:5000')
 		socket.on('output', msg => {
 			const item = document.createElement("pre")
 			item.textContent = msg
@@ -34,7 +34,7 @@
 			const code = document.querySelector('textarea#code').value
 			console.log(code)
 
-			socket.emit("run-script", code)
+			socket.emit("execute_input", JSON.stringify({ code }))
 		}
 	</script>
 </head>

@@ -1,9 +1,8 @@
 ## Simple Python Script Runner
 
-
 ```
-$ npm install
-$ node index.js
+$ source ./venv/bin/activate
+(venv) $ python server.py
 ```
 
-open http://localhost:4090/
+double click the index.html to open it directly in browser
