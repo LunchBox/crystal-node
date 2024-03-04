@@ -35,6 +35,8 @@ def serialize_datetime(obj):
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret!'
+
+#TODO: should only allow trusted hosts
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on('execute_input')
