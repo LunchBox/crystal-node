@@ -44,6 +44,9 @@ def handle_json(json_str):
     req = json.loads(json_str)
     # print(req)
     msg_id = kc.execute(req['code'])
+    print('----')
+    print(msg_id)
+    emit('reg_msg', json.dumps({"msg_id": msg_id, "block_id": req['block_id'] }))
 
     # Wait for the result and display it
     while True:
