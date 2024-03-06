@@ -6,6 +6,7 @@ from flask_socketio import send, emit
 
 import datetime 
 import json
+from queue import Empty
 
 # # Create a new kernel manager
 # km = KernelManager(kernel_name='python3')
@@ -60,10 +61,11 @@ def handle_json(json_str):
 
             json_str = json.dumps(msg, default=serialize_datetime) 
             emit('output', json_str)
-
-            if 'content' in msg and 'execution_state' in msg['content']:
-                if msg['content']['execution_state'] == 'idle':
-                    break
+            
+            if msg['msg_type'] == 'status' and msg['content']['execution_state'] == 'idle':
+                break
+        except Empty: # just wait
+            pass
         except KeyboardInterrupt:
             print("Interrupted by user.")
             break
